@@ -6,6 +6,8 @@ FROM (
     FROM ProductDetail
 ) AS normalized_products
 ORDER BY OrderID;
+
+
 SQL Query to transform into 2NF:
 Step 1: Create the Orders table
 CREATE TABLE Orders (
@@ -17,6 +19,7 @@ CREATE TABLE Orders (
 INSERT INTO Orders (OrderID, CustomerName)
 SELECT DISTINCT OrderID, CustomerName
 FROM OrderDetails;
+
 Step 2: Create the OrderDetails table
 CREATE TABLE OrderDetails (
     OrderID INT,
